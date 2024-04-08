@@ -70,39 +70,22 @@ const SkillBanner = (props) => {
                 </div>
 
                 <div >
-                    <AnimatedProgressProvider
-                        valueStart={0}
-                        valueEnd={props.percentage}
-                        duration={1}
-                        easingFunction={easeQuadInOut}
-                        repeat
-                    >
-                        {value => {
-                            const roundedValue = Math.round(value);
-                            return (
-                                <CircularProgressbar
-                                    value={value}
-                                    text={`${roundedValue}%`}
-                                    styles={{
-                                        path: {
-                                            // Path color
-                                            stroke: `#2b173c`,
-                                            // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-                                            strokeLinecap: 'butt',
-                                            // Customize transition animation
-                                            transition: 'stroke-dashoffset 0.5s ease 0s',
-                                            // Rotate the path
-                                            transform: 'rotate(0.25turn)',
-                                            transformOrigin: 'center center',
-                                        },
-                                    }}
-                                /* This is important to include, because if you're fully managing the
-                          animation yourself, you'll want to disable the CSS animation. */
+                    <CircularProgressbar value={props.percentage}
+                        text={`${props.percentage}%`}
+                        styles={{
+                            path: {
+                                // Path color
+                                stroke: `#2b173c`,
+                                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                                strokeLinecap: 'butt',
+                                // Customize transition animation
+                                transition: 'stroke-dashoffset 0.5s ease 0s',
+                                // Rotate the path
+                                transform: 'rotate(0.25turn)',
+                                transformOrigin: 'center center',
+                            },
+                        }} />
 
-                                />
-                            );
-                        }}
-                    </AnimatedProgressProvider>
 
                 </div>
 
